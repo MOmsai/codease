@@ -236,3 +236,69 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('All Features Loaded');
 });
+
+// ==============================================
+// IMAGE SLIDESHOW FOR SERVICES PAGE
+// ==============================================
+function initSlideshows() {
+    document.querySelectorAll(".slideshow").forEach(slider => {
+        const prefix = slider.dataset.prefix;
+        const total = 4;
+        let index = 0;
+        let slides = [];
+
+        // Create images
+        for (let i = 1; i <= total; i++) {
+            const img = document.createElement("img");
+            img.src = `assets/${prefix}_${String(i).padStart(2, "0")}.jpeg`;
+            if (i === 1) img.classList.add("active");
+            slider.appendChild(img);
+            slides.push(img);
+        }
+
+        // Buttons
+        const prev = document.createElement("button");
+        prev.className = "slide-btn prev";
+        prev.innerHTML = "&#10094;";
+
+        const next = document.createElement("button");
+        next.className = "slide-btn next";
+        next.innerHTML = "&#10095;";
+
+        slider.append(prev, next);
+
+        function show(newIndex, direction) {
+            slides[index].classList.remove("active");
+            slides[index].classList.add("exit-left");
+
+            slides[newIndex].classList.remove("exit-left");
+            slides[newIndex].classList.add("active");
+
+            setTimeout(() => {
+                slides[index].classList.remove("exit-left");
+                index = newIndex;
+            }, 800);
+        }
+
+        function nextSlide() {
+            const newIndex = (index + 1) % total;
+            show(newIndex, "next");
+        }
+
+        function prevSlide() {
+            const newIndex = (index - 1 + total) % total;
+            show(newIndex, "prev");
+        }
+
+        next.onclick = () => { nextSlide(); reset(); };
+        prev.onclick = () => { prevSlide(); reset(); };
+
+        let timer = setInterval(nextSlide, 3000);
+
+        function reset() {
+            clearInterval(timer);
+            timer = setInterval(nextSlide, 3000);
+        }
+    });
+}
+
