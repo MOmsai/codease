@@ -223,6 +223,39 @@ async function loadCourses() {
     }
 }
 
+function animateCounter(element, target, duration = 2000) {
+
+    let start = 0;
+    let increment = target / (duration / 16);
+
+    const timer = setInterval(() => {
+
+        start += increment;
+
+        if (start >= target) {
+            element.textContent = target;
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(start);
+        }
+
+    }, 16);
+}
+
+function initStatsCounter() {
+
+    const statElements = document.querySelectorAll('[data-count]');
+
+    statElements.forEach(stat => {
+
+        const target = parseInt(stat.dataset.count);
+
+        animateCounter(stat, target);
+
+    });
+}
+
+
 // ==============================================
 // INITIALIZATION
 // ==============================================
