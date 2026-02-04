@@ -256,6 +256,31 @@ function initStatsCounter() {
 }
 
 
+function initMobileNavbar() {
+
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    if (!navToggle || !navMenu) return;
+
+    navToggle.addEventListener('click', () => {
+
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+
+    });
+
+    // Close menu when clicking link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+        });
+
+    });
+}
+
 
 // ==============================================
 // INITIALIZATION
@@ -269,6 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadCourses();
      initSlideshows(); 
     initStatsCounter();
+    initMobileNavbar();
 
 
     console.log('All Features Loaded');
