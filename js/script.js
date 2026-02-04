@@ -81,41 +81,42 @@ function initContactForm() {
         }
 
         try {
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name,
-                    lastname,
-                    email,
-                    phone,
-                    subject,
-                    message
-                })
-            });
 
-            let data;
-
-try {
-    data = await response.json();
-} catch {
-    const text = await response.text();
-    throw new Error(text);
-}
-
-
-            if (!response.ok) throw new Error(data.message);
-
-            showSuccessMessage('Message Sent Successfully!');
-            contactForm.reset();
-
-        } catch (error) {
-            console.error(error);
-            showErrorMessage('Failed to send message');
-        }
+    const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name,
+            lastname,
+            email,
+            phone,
+            subject,
+            message
+        })
     });
+
+    const text = await response.text();
+
+    let data;
+
+    try {
+        data = JSON.parse(text);
+    } catch {
+        throw new Error(text);
+    }
+
+    if (!response.ok) {
+        throw new Error(data.message || "Server Error");
+    }
+
+    showSuccessMessage("Message sent successfully!");
+    contactForm.reset();
+
+} catch (error) {
+    console.error(error);
+    showErrorMessage(error.message);
 }
 
 // ==============================================
