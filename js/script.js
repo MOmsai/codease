@@ -267,6 +267,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initSignInForm();
     loadCourses();
      initSlideshows(); 
+    initStatsCounter();
+
 
     console.log('All Features Loaded');
 });
