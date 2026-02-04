@@ -59,10 +59,12 @@ function showErrorMessage(message) {
 // CONTACT FORM HANDLER
 // ==============================================
 function initContactForm() {
+
     const contactForm = document.getElementById('contactForm');
     if (!contactForm) return;
 
     contactForm.addEventListener('submit', async function(e) {
+
         e.preventDefault();
 
         const name = document.getElementById('name').value.trim();
@@ -82,41 +84,42 @@ function initContactForm() {
 
         try {
 
-    const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            name,
-            lastname,
-            email,
-            phone,
-            subject,
-            message
-        })
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name,
+                    lastname,
+                    email,
+                    phone,
+                    subject,
+                    message
+                })
+            });
+
+            const text = await response.text();
+
+            let data;
+
+            try {
+                data = JSON.parse(text);
+            } catch {
+                throw new Error(text);
+            }
+
+            if (!response.ok) {
+                throw new Error(data.message || "Server Error");
+            }
+
+            showSuccessMessage("Message sent successfully!");
+            contactForm.reset();
+
+        } catch (error) {
+            console.error(error);
+            showErrorMessage(error.message);
+        }
+
     });
-
-    const text = await response.text();
-
-    let data;
-
-    try {
-        data = JSON.parse(text);
-    } catch {
-        throw new Error(text);
-    }
-
-    if (!response.ok) {
-        throw new Error(data.message || "Server Error");
-    }
-
-    showSuccessMessage("Message sent successfully!");
-    contactForm.reset();
-
-} catch (error) {
-    console.error(error);
-    showErrorMessage(error.message);
 }
 
 // ==============================================
