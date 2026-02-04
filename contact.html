@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Codease</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+    <a href="index.html" class="logo-wrap">
+        <img src="assets/logo.jpeg" alt="Codease Logo" />
+        <div class="logo-text"></div><span class="logo-text"><span class="blue">Code</span><span class="white">With</span><span
+                            class="blue">Ease</span></span> 
+    </a>
+</div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html"><i class="fas fa-home"></i><span class="nav-text">Home</span></a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i><span class="nav-text">About</span></a></li>
+                <li><a href="jobreadiness.html"><i class="fas fa-user-tie"></i><span class="nav-text">SkillForge</span></a></li>
+                <li><a href="services.html"><i class="fas fa-briefcase"></i><span class="nav-text">Courses</span></a></li>
+                <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i><span class="nav-text">Contact</span></a></li>
+                <li><a href="certifications.html"><i class="fas fa-envelope"></i><span class="nav-text">Certifications</span></a></li>     
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="hero-image-section contact-hero">
+        <div class="container">
+            <div class="hero-content-animated">
+                <h1 class="hero-title-animated">Get In Touch</h1>
+                <p class="hero-subtitle-animated">Have questions? We'd love to hear from you and help you get started</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section>
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div>
+                    <div class="form-container" style="margin: 0; max-width: 100%;">
+                        <h2>Send us a Message</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">First Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">Last Name *</label>
+                                <input type="text" id="lastname" name="lastname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="courses">Course Information</option>
+                                    <option value="technical">Technical Support</option>
+                                    <option value="partnership">Partnership Opportunities</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="form-submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+
+                    <div class="contact-item">
+                    
+                        <i class="fa-regular fa-at" style="color: #f3f4f6;"></i>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>hr@codease.in</p>
+                            
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                    
+                        <i class="fa-solid fa-phone"></i>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+91 9398942422</p>
+                            
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                    
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div class="contact-details">
+                            <h4>Address</h4>
+                            <p>#520 Manjeera Majestic</p>
+                            <p>Commercial,JNTU-ROAD,</p>
+                            <p>Hyderabad,Telangana-500072</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        
+                        <i class="fa-regular fa-clock" style="color: #f3f4f6;"></i>
+                        <div class="contact-details">
+                            <h4>Office Hours</h4>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                            <p>Saturday: 10:00 AM - 4:00 PM</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>How do I enroll in a course?</h3>
+                <p>Simply click on the "Register" button, create an account, and select your desired course. You'll
+                    get immediate access to the course materials once enrolled.</p>
+            </div>
+            <div class="service-card">
+                <h3>Do the courses include hands-on projects?</h3>
+                <p>Yes. Every course includes practical assignments, real-world projects, and live project exposure to ensure job-ready skills</p>
+            </div>
+            <div class="service-card">
+                <h3>Do you offer certificates?</h3>
+                <p>Yes! Upon successful completion of a course, you'll receive a certificate that you can share on
+                    LinkedIn and add to your resume.</p>
+            </div>
+            <div class="service-card">
+                <h3>Can I access courses on mobile?</h3>
+                <p>Absolutely! Our platform is fully responsive and works seamlessly on desktop, tablet, and mobile
+                    devices.</p>
+            </div>
+            <div class="service-card">
+                <h3>Do you provide career guidance along with the course?</h3>
+                <p>Yes. We provide career support including resume building, mock interviews, soft skills training, and placement guidance.</p>
+            </div>
+            <div class="service-card">
+                <h3>Do you provide job placement assistance?</h3>
+                <p>Yes, we offer career counseling, resume building, interview preparation, and job placement
+                    assistance for all our students.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Still Have Questions?</h2>
+            <p>Our team is here to help you every step of the way</p>
+            <a href="register.html" class="btn btn-primary btn-large">Start Learning Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>CodeWithEase</h3>
+                    <p>Learn Coding With Ease</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Programs</h4>
+                    <ul>
+                        <li><a href="services.html">Web Development</a></li>
+                        <li><a href="services.html">Backend Development</a></li>
+                        <li><a href="services.html">Cloud & DevOps</a></li>
+                        <li><a href="services.html">AI with data Science</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>Email: hr@codease.in</li>
+                        <li>Phone: +91 9398942422</li>
+            
+                    <li><i class="fas fa-map-marker-alt"></i> #520 Manjeera Majestic</li>
+                    <li> Commercial,JNTU-ROAD</li>
+                    <li>Hyderabad,Telangana-500072</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CodeWithEase. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

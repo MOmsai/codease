@@ -1,0 +1,5 @@
+node_modules
+.env
+data/contact_submissions.xlsx
+.vercel
+.DS_Store
