@@ -233,6 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initRegistrationForm();
     initSignInForm();
     loadCourses();
+     initSlideshows(); 
 
     console.log('All Features Loaded');
 });
@@ -242,21 +243,24 @@ document.addEventListener('DOMContentLoaded', () => {
 // ==============================================
 function initSlideshows() {
     document.querySelectorAll(".slideshow").forEach(slider => {
+
         const prefix = slider.dataset.prefix;
         const total = 4;
         let index = 0;
         let slides = [];
 
-        // Create images
         for (let i = 1; i <= total; i++) {
+
             const img = document.createElement("img");
-            img.src = `assets/${prefix}_${String(i).padStart(2, "0")}.jpeg`;
+
+            img.src = `/assets/${prefix}_${String(i).padStart(2, "0")}.jpeg`;
+
             if (i === 1) img.classList.add("active");
+
             slider.appendChild(img);
             slides.push(img);
         }
 
-        // Buttons
         const prev = document.createElement("button");
         prev.className = "slide-btn prev";
         prev.innerHTML = "&#10094;";
@@ -267,38 +271,24 @@ function initSlideshows() {
 
         slider.append(prev, next);
 
-        function show(newIndex, direction) {
+        function show(newIndex) {
             slides[index].classList.remove("active");
-            slides[index].classList.add("exit-left");
-
-            slides[newIndex].classList.remove("exit-left");
             slides[newIndex].classList.add("active");
-
-            setTimeout(() => {
-                slides[index].classList.remove("exit-left");
-                index = newIndex;
-            }, 800);
+            index = newIndex;
         }
 
         function nextSlide() {
-            const newIndex = (index + 1) % total;
-            show(newIndex, "next");
+            show((index + 1) % total);
         }
 
         function prevSlide() {
-            const newIndex = (index - 1 + total) % total;
-            show(newIndex, "prev");
+            show((index - 1 + total) % total);
         }
 
-        next.onclick = () => { nextSlide(); reset(); };
-        prev.onclick = () => { prevSlide(); reset(); };
+        next.onclick = nextSlide;
+        prev.onclick = prevSlide;
 
-        let timer = setInterval(nextSlide, 3000);
-
-        function reset() {
-            clearInterval(timer);
-            timer = setInterval(nextSlide, 3000);
-        }
+        setInterval(nextSlide, 3000);
     });
 }
 
