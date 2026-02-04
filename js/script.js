@@ -223,20 +223,20 @@ async function loadCourses() {
     }
 }
 
-function animateCounter(element, target, duration = 2000) {
+function animateCounter(element, target, suffix = "", duration = 2000) {
 
     let start = 0;
-    let increment = target / (duration / 16);
+    const increment = target / (duration / 16);
 
     const timer = setInterval(() => {
 
         start += increment;
 
         if (start >= target) {
-            element.textContent = target;
+            element.textContent = target + suffix;
             clearInterval(timer);
         } else {
-            element.textContent = Math.floor(start);
+            element.textContent = Math.floor(start) + suffix;
         }
 
     }, 16);
@@ -249,11 +249,12 @@ function initStatsCounter() {
     statElements.forEach(stat => {
 
         const target = parseInt(stat.dataset.count);
+        const suffix = stat.dataset.suffix || "";
 
-        animateCounter(stat, target);
-
+        animateCounter(stat, target, suffix);
     });
 }
+
 
 
 // ==============================================
